@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/models/Cart.dart';
 
 import '../../../size_config.dart';
-import 'favourite_card.dart';
+import '../../cart/components/cart_card.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -44,7 +44,7 @@ class _BodyState extends State<Body> {
                       ],
                     ),
                   ),
-                  child: FavouriteCard(cart: demoCarts[index]),
+                  child: CartCard(cart: demoCarts[index]),
                 ),
               ),
             ),
