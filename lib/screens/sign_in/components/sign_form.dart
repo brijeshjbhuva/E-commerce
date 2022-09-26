@@ -91,21 +91,23 @@ class _SignFormState extends State<SignForm> {
       obscureText: true,
       onSaved: (newValue) => password = newValue,
       onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kPassNullError);
-        } else if (value.length >= 8) {
-          removeError(error: kShortPassError);
-        }
+        // if (value.isNotEmpty) {
+        //   removeError(error: kPassNullError);
+        // }
+        // else if (value.length >= 8) {
+        //   removeError(error: kShortPassError);
+        // }
         return null;
       },
       validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kPassNullError);
-          return "";
-        } else if (value.length < 8) {
-          addError(error: kShortPassError);
-          return "";
-        }
+        // if (value!.isEmpty) {
+        //   addError(error: kPassNullError);
+        //   return "";
+        // }
+        // else if (value.length < 8) {
+        //   addError(error: kShortPassError);
+        //   return "";
+        // }
         return null;
       },
       decoration: InputDecoration(
@@ -124,21 +126,23 @@ class _SignFormState extends State<SignForm> {
       keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => email = newValue,
       onChanged: (value) {
-        if (value.isNotEmpty) {
-          removeError(error: kEmailNullError);
-        } else if (emailValidatorRegExp.hasMatch(value)) {
-          removeError(error: kInvalidEmailError);
-        }
+        // if (value.isNotEmpty) {
+        //   removeError(error: kEmailNullError);
+        // }
+        // else if (emailValidatorRegExp.hasMatch(value)) {
+        //   removeError(error: kInvalidEmailError);
+        // }
         return null;
       },
       validator: (value) {
-        if (value!.isEmpty) {
-          addError(error: kEmailNullError);
-          return "";
-        } else if (!emailValidatorRegExp.hasMatch(value)) {
-          addError(error: kInvalidEmailError);
-          return "";
-        }
+        // if (value!.isEmpty) {
+        //   addError(error: kEmailNullError);
+        //   return "";
+        // }
+        // else if (!emailValidatorRegExp.hasMatch(value)) {
+        //   addError(error: kInvalidEmailError);
+        //   return "";
+        // }
         return null;
       },
       decoration: InputDecoration(

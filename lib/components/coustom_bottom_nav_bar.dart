@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:shop_app/screens/home/home_screen.dart';
-import 'package:shop_app/screens/profile/profile_screen.dart';
 
 import '../constants.dart';
 import '../enums.dart';
@@ -9,9 +7,11 @@ import '../enums.dart';
 class CustomBottomNavBar extends StatelessWidget {
   const CustomBottomNavBar({
     Key? key,
+    required this.onTap,
     required this.selectedMenu,
   }) : super(key: key);
 
+  final Function(MenuState) onTap;
   final MenuState selectedMenu;
 
   @override
@@ -39,33 +39,61 @@ class CustomBottomNavBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/Shop Icon.svg",
-                  color: MenuState.home == selectedMenu
-                      ? kPrimaryColor
-                      : inActiveIconColor,
-                ),
-                onPressed: () =>
-                    Navigator.pushNamed(context, HomeScreen.routeName),
-              ),
+                  icon: SvgPicture.asset(
+                    "assets/icons/Shop Icon.svg",
+                    color: MenuState.home == selectedMenu
+                        ? kPrimaryColor
+                        : inActiveIconColor,
+                  ),
+                  onPressed: () {
+                    if (selectedMenu != MenuState.home) {
+                      onTap(MenuState.home);
+                      // Navigator.pushReplacementNamed(
+                      //     context, HomeScreen.routeName);
+                    }
+                  }),
               IconButton(
-                icon: SvgPicture.asset("assets/icons/Heart Icon.svg"),
-                onPressed: () {},
-              ),
+                  icon: SvgPicture.asset(
+                    "assets/icons/Heart Icon.svg",
+                    color: MenuState.favourite == selectedMenu
+                        ? kPrimaryColor
+                        : inActiveIconColor,
+                  ),
+                  onPressed: () {
+                    if (selectedMenu != MenuState.favourite) {
+                      onTap(MenuState.favourite);
+                      // Navigator.pushReplacementNamed(
+                      //     context, FavouriteScreen.routeName);
+                    }
+                  }),
               IconButton(
-                icon: SvgPicture.asset("assets/icons/Chat bubble Icon.svg"),
-                onPressed: () {},
-              ),
+                  icon: SvgPicture.asset(
+                    "assets/icons/Cart Icon.svg",
+                    color: MenuState.cart == selectedMenu
+                        ? kPrimaryColor
+                        : inActiveIconColor,
+                  ),
+                  onPressed: () {
+                    if (selectedMenu != MenuState.cart) {
+                      onTap(MenuState.cart);
+                      // Navigator.pushReplacementNamed(
+                      //     context, CartScreen.routeName);
+                    }
+                  }),
               IconButton(
-                icon: SvgPicture.asset(
-                  "assets/icons/User Icon.svg",
-                  color: MenuState.profile == selectedMenu
-                      ? kPrimaryColor
-                      : inActiveIconColor,
-                ),
-                onPressed: () =>
-                    Navigator.pushNamed(context, ProfileScreen.routeName),
-              ),
+                  icon: SvgPicture.asset(
+                    "assets/icons/User Icon.svg",
+                    color: MenuState.profile == selectedMenu
+                        ? kPrimaryColor
+                        : inActiveIconColor,
+                  ),
+                  onPressed: () {
+                    if (selectedMenu != MenuState.profile) {
+                      onTap(MenuState.profile);
+                      // Navigator.pushReplacementNamed(
+                      //     context, ProfileScreen.routeName);
+                    }
+                  }),
             ],
           )),
     );

@@ -4,16 +4,21 @@ import 'package:shop_app/enums.dart';
 
 import 'components/body.dart';
 
-class ProfileScreen extends StatelessWidget {
-  static String routeName = "/profile";
+class FavouriteScreen extends StatelessWidget {
+  static String routeName = "/favourite";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile"),
+        title: Text(
+          "Favourite",
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Body(),
-      // bottomNavigationBar: CustomBottomNavBar(selectedMenu: MenuState.profile),
+      // bottomNavigationBar:
+      //     CustomBottomNavBar(selectedMenu: MenuState.favourite),
     );
   }
 }

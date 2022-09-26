@@ -3,8 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/models/Cart.dart';
 
 import '../../../size_config.dart';
-import 'cart_card.dart';
-import 'check_out_card.dart';
+import 'favourite_card.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -45,13 +44,12 @@ class _BodyState extends State<Body> {
                       ],
                     ),
                   ),
-                  child: CartCard(cart: demoCarts[index]),
+                  child: FavouriteCard(cart: demoCarts[index]),
                 ),
               ),
             ),
           ),
         ),
-        CheckoutCard(),
       ],
     );
   }
