@@ -60,27 +60,48 @@ class ProductDescription extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.symmetric(
-            horizontal: getProportionateScreenWidth(20),
-            vertical: 10,
-          ),
-          child: GestureDetector(
-            onTap: () {},
-            child: Row(
-              children: [
-                Text(
-                  "See More Detail",
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600, color: kPrimaryColor),
-                ),
-                SizedBox(width: 5),
-                Icon(
-                  Icons.arrow_forward_ios,
-                  size: 12,
+          padding: EdgeInsets.all(getProportionateScreenWidth(20)),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "${product.qty}${product.unit}",
+                style: TextStyle(
+                  fontSize: getProportionateScreenWidth(16),
+                  fontWeight: FontWeight.w600,
                   color: kPrimaryColor,
                 ),
-              ],
-            ),
+              ),
+              Text(
+                "${product.price}",
+                style: TextStyle(
+                  fontSize: getProportionateScreenWidth(16),
+                  fontWeight: FontWeight.w600,
+                  color: kPrimaryColor,
+                ),
+              ),
+              // InkWell(
+              //   borderRadius: BorderRadius.circular(50),
+              //   onTap: () {},
+              //   child: Container(
+              //     padding: EdgeInsets.all(getProportionateScreenWidth(8)),
+              //     height: getProportionateScreenWidth(28),
+              //     width: getProportionateScreenWidth(28),
+              //     decoration: BoxDecoration(
+              //       color: product.isFavourite
+              //           ? kPrimaryColor.withOpacity(0.15)
+              //           : kSecondaryColor.withOpacity(0.1),
+              //       shape: BoxShape.circle,
+              //     ),
+              //     child: SvgPicture.asset(
+              //       "assets/icons/Heart Icon_2.svg",
+              //       color: product.isFavourite
+              //           ? Color(0xFFFF4848)
+              //           : Color(0xFFDBDEE4),
+              //     ),
+              //   ),
+              // ),
+            ],
           ),
         )
       ],

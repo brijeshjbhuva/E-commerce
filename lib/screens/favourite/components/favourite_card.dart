@@ -50,7 +50,7 @@ class FavouriteCard extends StatelessWidget {
               ),
               SizedBox(height: 10),
               Text(
-                "\$${cart.product.price}",
+                "${cart.product.price}",
                 style:
                     TextStyle(fontWeight: FontWeight.w600, color: kPrimaryColor),
               ),

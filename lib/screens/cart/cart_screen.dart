@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/models/Cart.dart';
 
-import '../../components/coustom_bottom_nav_bar.dart';
-import '../../enums.dart';
 import 'components/body.dart';
 
 class CartScreen extends StatelessWidget {
@@ -19,6 +17,7 @@ class CartScreen extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Column(
         children: [
           Text(

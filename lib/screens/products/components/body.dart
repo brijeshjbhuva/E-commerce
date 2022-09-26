@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../../components/product_card.dart';
 import '../../../models/Product.dart';
 import '../../../size_config.dart';
-import 'product_card.dart';
 
 class Body extends StatefulWidget {
   @override

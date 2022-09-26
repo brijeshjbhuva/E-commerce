@@ -1,23 +1,21 @@
-import 'package:flutter/material.dart';
-
 class Product {
   final int id;
-  final String title, description;
+  final String title, description, unit;
   final List<String> images;
-  final List<Color> colors;
-  final double rating, price;
+  final double rating, price, qty;
   final bool isFavourite, isPopular;
 
   Product({
     required this.id,
     required this.images,
-    required this.colors,
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
     required this.title,
     required this.price,
     required this.description,
+    this.qty = 1,
+    this.unit = "KG",
   });
 }
 
@@ -25,21 +23,24 @@ class Product {
 
 List<Product> demoProducts = [
   Product(
+    id: 16,
+    images: [
+      "assets/images/apple.png",
+    ],
+    title: "Apple",
+    price: 100,
+    description: description,
+    rating: 4.8,
+    isFavourite: true,
+    isPopular: true,
+  ),
+  Product(
     id: 1,
     images: [
-      "assets/images/ps4_console_white_1.png",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "assets/images/banana.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Wireless Controller for PS4™",
-    price: 64.99,
+    title: "Banana",
+    price: 40,
     description: description,
     rating: 4.8,
     isFavourite: true,
@@ -48,16 +49,10 @@ List<Product> demoProducts = [
   Product(
     id: 2,
     images: [
-      "assets/images/Image Popular Product 2.png",
+      "assets/images/black_grapes.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Nike Sport White - Man Pant",
-    price: 50.5,
+    title: "Black Grapes",
+    price: 150,
     description: description,
     rating: 4.1,
     isPopular: true,
@@ -65,16 +60,10 @@ List<Product> demoProducts = [
   Product(
     id: 3,
     images: [
-      "assets/images/glap.png",
+      "assets/images/custard_apple.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Gloves XC Omega - Polygon",
-    price: 36.55,
+    title: "Custard Apple",
+    price: 100,
     description: description,
     rating: 4.1,
     isFavourite: true,
@@ -83,16 +72,10 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/images/wireless headset.png",
+      "assets/images/grapes.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Logitech Head",
-    price: 20.20,
+    title: "Grapes",
+    price: 200,
     description: description,
     rating: 4.1,
     isFavourite: true,
@@ -100,19 +83,10 @@ List<Product> demoProducts = [
   Product(
     id: 5,
     images: [
-      "assets/images/ps4_console_white_1.png",
-      "assets/images/ps4_console_white_2.png",
-      "assets/images/ps4_console_white_3.png",
-      "assets/images/ps4_console_white_4.png",
+      "assets/images/green_apple.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Wireless Controller for PS4™",
-    price: 64.99,
+    title: "Green Apple",
+    price: 100,
     description: description,
     rating: 4.8,
     isFavourite: true,
@@ -121,16 +95,10 @@ List<Product> demoProducts = [
   Product(
     id: 6,
     images: [
-      "assets/images/Image Popular Product 2.png",
+      "assets/images/kiwi.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Nike Sport White - Man Pant",
-    price: 50.5,
+    title: "Kiwi",
+    price: 300,
     description: description,
     rating: 4.1,
     isPopular: true,
@@ -138,16 +106,10 @@ List<Product> demoProducts = [
   Product(
     id: 7,
     images: [
-      "assets/images/glap.png",
+      "assets/images/onion.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
-    ],
-    title: "Gloves XC Omega - Polygon",
-    price: 36.55,
+    title: "Onion",
+    price: 120,
     description: description,
     rating: 4.1,
     isFavourite: true,
@@ -156,16 +118,87 @@ List<Product> demoProducts = [
   Product(
     id: 8,
     images: [
-      "assets/images/wireless headset.png",
+      "assets/images/orange.png",
     ],
-    colors: [
-      Color(0xFFF6625E),
-      Color(0xFF836DB8),
-      Color(0xFFDECB9C),
-      Colors.white,
+    title: "Orange",
+    price: 80,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+  ),
+  Product(
+    id: 9,
+    images: [
+      "assets/images/papaya.png",
     ],
-    title: "Logitech Head",
-    price: 20.20,
+    title: "Papaya",
+    price: 90,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+  ),
+  Product(
+    id: 10,
+    images: [
+      "assets/images/pomegranate.png",
+    ],
+    title: "Pomegranate",
+    price: 110,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+  ),
+  Product(
+    id: 11,
+    images: [
+      "assets/images/potato.png",
+    ],
+    title: "Potato",
+    price: 170,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+  ),
+  Product(
+    id: 12,
+    images: [
+      "assets/images/strawberry.png",
+    ],
+    title: "Strawberry",
+    price: 200,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+  ),
+  Product(
+    id: 13,
+    images: [
+      "assets/images/tomato.png",
+    ],
+    title: "Tomato",
+    price: 60,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+  ),
+  Product(
+    id: 14,
+    images: [
+      "assets/images/watermelon.png",
+    ],
+    title: "Watermelon",
+    price: 50,
+    description: description,
+    rating: 4.1,
+    isFavourite: true,
+  ),
+  Product(
+    id: 15,
+    images: [
+      "assets/images/wheat.jpg",
+    ],
+    title: "Wheat",
+    price: 2000,
     description: description,
     rating: 4.1,
     isFavourite: true,
@@ -173,4 +206,4 @@ List<Product> demoProducts = [
 ];
 
 const String description =
-    "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
+    "More specifically, a vegetable may be defined as 'any plant, part of which is used for food', a secondary meaning then being 'the edible part of such a plant'.";
